@@ -4,7 +4,7 @@
 int main() {
   int pipe1[2];
   int pipe2[2];
-  char byte = 'x'; // The actual byte value doesn't matter
+  char byte = 'x';
 
   if (pipe(pipe1) < 0 || pipe(pipe2) < 0) {
     fprintf(2, "pipe creation failed\n");
