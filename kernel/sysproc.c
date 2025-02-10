@@ -91,3 +91,18 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+//Add a sys_trace() function in kernel/sysproc.c that implements the new system call
+//by remembering its argument in a new variable in the proc structure (see kernel/proc.h).
+//The functions to retrieve system call arguments from user space are in kernel/syscall.c,
+//and you can see examples of their use in kernel/sysproc.c.
+//Add your new sys_trace to the syscalls array in kernel/syscall.c.
+uint64
+sys_trace(void)
+{
+  int mask;
+  //retrieve the mask arg from user space
+  argint(0, &mask);
+  myproc()->trace_mask = mask;
+  return 0;
+}
