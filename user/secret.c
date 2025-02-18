@@ -14,7 +14,8 @@ main(int argc, char *argv[])
   char *end = sbrk(PGSIZE*32);
   end = end + 9 * PGSIZE;
   strcpy(end, "my very very very secret pw is:   ");
+  //print the location of the secret
+  printf("secret location: %p\n", end+32);
   strcpy(end+32, argv[1]);
   exit(0);
 }
-
